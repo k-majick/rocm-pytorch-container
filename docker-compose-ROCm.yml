@@ -1,0 +1,22 @@
+services:
+  rocm-jupyter:
+    image: rocm/pytorch:latest
+    user: "${UID}:${GID}"
+    container_name: pytorch-rocm
+    ipc: host
+    restart: unless-stopped
+    ports:
+      - "8888:8888"
+    devices:
+      - "/dev/kfd"
+      - "/dev/dri"
+    group_add:
+      - video
+      - render
+      - kvm
+    volumes:
+      - /home/k-majick/Documents:/workspace
+    working_dir: /workspace
+    command: ["/workspace/rocm-dev/startup.sh"]
+
+

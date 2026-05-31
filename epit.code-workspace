@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"name": "devops",
+			"path": "devops"
+		},
+		{
+			"path": "demo-react"
+		},
+		{
+			"path": "demo-nextjs"
+		},
+		{
+			"path": "mof.epit.frontend"
+		}
+	],
+  "settings": {}
+}

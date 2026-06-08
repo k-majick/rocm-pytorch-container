@@ -1,8 +1,11 @@
 services:
   rocm-jupyter:
-    image: rocm/pytorch:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rocm-pytorch-custom
     user: "${UID}:${GID}"
-    container_name: pytorch-rocm
+    container_name: rocm-pytorch
     ipc: host
     restart: unless-stopped
     ports:
@@ -17,6 +20,6 @@ services:
     volumes:
       - /home/k-majick/Documents:/workspace
     working_dir: /workspace
-    command: ["/workspace/rocm-dev/startup.sh"]
+    command: ["/workspace/rocm-pytorch/startup.sh"]
 
 
